@@ -104,3 +104,47 @@ html
     .container
     = yield
 ```
+
+## エラーメッセージを日本語にする(i18n)
+
+日本語翻訳ファイルをダウンロード
+
+```
+$ wget https://raw.githubusercontent.com/svenfuchs/rails-i18n/master/rails/locale/ja.yml --output-document=config/locales/ja.yml
+```
+
+config/initializers/local.rb 追加
+
+```
+Rails.application.config.i18n.default_locale = :ja
+```
+
+## Task model
+
+- model: Task
+- table: tasks
+
+```
+$ bin/rails g model Task name:string description:text 
+$ bin/rails db:migrate
+```
+
+## tasks controller & views
+
+```
+$ bin/rails g controller tasks index show new edit
+```
+
+## add resources
+
+./config/routes.rb を修正
+
+```
+Rails.application.routes.draw do
+  # get 'tasks/index'
+  # get 'tasks/show'
+  # get 'tasks/new'
+  # get 'tasks/edit'
+  resources :tasks
+end
+```
