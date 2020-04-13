@@ -1,10 +1,13 @@
 # taskleaf
 
+## Description
+
+- Rails
 - CRUD
 - postgreSQL
 - slim 
 
-## setup
+## Setup
 
 ```
 $ rails new taskleaf -d postgresql
